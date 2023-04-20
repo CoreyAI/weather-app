@@ -34,6 +34,7 @@
   display: flex;
   grid-area: top-row;
   background-color: red;
+  justify-content: space-between;
 }
 
 #bubble-left-column {
@@ -46,4 +47,9 @@
   display: flex;
   grid-area: right-column;
   background-color: green;
+}
+
+#search-bar, #location {
+  display: flex;
+  align-items: center;
 }
