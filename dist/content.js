@@ -1,3 +1,17 @@
+let searchClickFlag = false;
+
+const getSearchClickFlag = () => {
+  return searchClickFlag;
+}
+
+const setSearchClickFlag = () => {
+  if (searchClickFlag == false) {
+    searchClickFlag = true;
+  } else {
+    searchClickFlag = false;
+  }
+}
+
 const contentContainer = () => {
   const contentContainer = document.createElement("div");
   contentContainer.setAttribute("id", "content-container");
@@ -20,8 +34,8 @@ const bubbleTopRow = () => {
   container.setAttribute("class", "bubble-item");
   container.setAttribute("id", "bubble-top-row");
 
-  container.innerHTML = `Test`;
-
+  displayLocationOrSearch(container);
+  
   return container;
 }
 
@@ -39,4 +53,44 @@ const bubbleRightColumn = () => {
   return container;
 }
 
-export { weatherContainer, contentContainer };
+const locationSearch = () => {
+  const formContainer = document.createElement("form");
+  formContainer.setAttribute("action", "#");
+  formContainer.setAttribute("id", "search-bar");
+
+  formContainer.innerHTML = `
+    <label htmlFor="search">
+      <input type="text" name="search-location" id="search-location" 
+        placeholder="location"/>
+        <button type="submit">Submit</button>
+        <button type="reset">Reset</button>
+    </label>
+  `;
+
+  return formContainer;
+}
+
+const locationDisplay = () => {
+  const container = document.createElement("div");
+  container.setAttribute("id", "location");
+  
+  // TODO: City name must be obtained from input/API.
+  container.innerHTML = `Windsor`;
+  return container;
+}
+
+const displayLocationOrSearch = (container) => {
+  if (searchClickFlag == false) {
+    container.appendChild(locationDisplay());
+  } else {
+    container.appendChild(locationSearch());
+  }
+}
+
+const clearContainer = (container) => {
+
+}
+
+export { weatherContainer, contentContainer, bubbleTopRow, bubbleLeftColumn, 
+  bubbleRightColumn, getSearchClickFlag, setSearchClickFlag, 
+  displayLocationOrSearch };
