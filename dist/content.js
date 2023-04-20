@@ -8,26 +8,35 @@ const weatherContainer = () => {
   const weatherContainer = document.createElement("div");
   weatherContainer.setAttribute("id", "weather-container");
 
-  const bubbleTopRow = document.createElement("div");
-  bubbleTopRow.setAttribute("class", "bubble-item");
-  bubbleTopRow.setAttribute("id", "bubble-top-row");
-  const bubbleLeftColumn = document.createElement("div");
-  bubbleLeftColumn.setAttribute("class", "bubble-item");
-  bubbleLeftColumn.setAttribute("id", "bubble-left-column");
-  const bubbleRightColumn = document.createElement("div");
-  bubbleRightColumn.setAttribute("class", "bubble-item");
-  bubbleRightColumn.setAttribute("id", "bubble-right-column");
-
-  weatherContainer.appendChild(bubbleTopRow);
-  weatherContainer.appendChild(bubbleLeftColumn);
-  weatherContainer.appendChild(bubbleRightColumn);
+  weatherContainer.appendChild(bubbleTopRow());
+  weatherContainer.appendChild(bubbleLeftColumn());
+  weatherContainer.appendChild(bubbleRightColumn());
 
   return weatherContainer;
 }
 
 const bubbleTopRow = () => {
-  const container = document.getElementById("bubble-top-row");
+  const container = document.createElement("div");
+  container.setAttribute("class", "bubble-item");
+  container.setAttribute("id", "bubble-top-row");
 
+  container.innerHTML = `Test`;
+
+  return container;
+}
+
+const bubbleLeftColumn = () => {
+  const container = document.createElement("div");
+  container.setAttribute("class", "bubble-item");
+  container.setAttribute("id", "bubble-left-column");
+  return container;
+}
+
+const bubbleRightColumn = () => {
+  const container = document.createElement("div");
+  container.setAttribute("class", "bubble-item");
+  container.setAttribute("id", "bubble-right-column");
+  return container;
 }
 
 export { weatherContainer, contentContainer };
