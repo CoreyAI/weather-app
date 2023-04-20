@@ -12,6 +12,10 @@ const pageLoad = (() => {
     container.appendChild(element);
   }
 
+  const appendElementIntoContainer = (element, container) => {
+    container.appendChild(element);
+  }
+
   const appendInnerHTML = (string) => {
     container.innerHTML += string;
   }
@@ -26,7 +30,8 @@ const pageLoad = (() => {
     }
   }
 
-  return {background, appendElement, appendInnerHTML, clearContent};
+  return {background, appendElement, appendInnerHTML, clearContent, 
+    appendElementIntoContainer};
 
 })();
 
