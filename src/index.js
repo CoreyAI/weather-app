@@ -1,10 +1,8 @@
 import { pageLoad } from "../dist/page-load";
-import * as content from "../dist/content";
+import * as Content from "../dist/content";
 import "./style.css";
 
-// const test = ` 
-//   <div>test 123</div>
-// `
+pageLoad.appendElement(Content.contentContainer());
+const contentContainer = document.getElementById("content-container");
 
-// pageLoad.appendInnerHTML(test);
-
+pageLoad.appendElementIntoContainer(Content.weatherTemplate(), contentContainer);
