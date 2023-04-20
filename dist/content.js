@@ -1,19 +1,12 @@
-// const contentContainer = document.getElementById("content-container");
-
-// const resetContainer = contentContainer.innerHTML = "";
-
 const contentContainer = () => {
   const contentContainer = document.createElement("div");
   contentContainer.setAttribute("id", "content-container");
   return contentContainer;
 }
 
-const weatherTemplate = () => {
-
-
+const weatherContainer = () => {
   const weatherContainer = document.createElement("div");
   weatherContainer.setAttribute("id", "weather-container");
-  // weatherContainer.innerHTML = 'Weather App Bubble';
 
   const bubbleTopRow = document.createElement("div");
   bubbleTopRow.setAttribute("class", "bubble-item");
@@ -29,7 +22,6 @@ const weatherTemplate = () => {
   weatherContainer.appendChild(bubbleLeftColumn);
   weatherContainer.appendChild(bubbleRightColumn);
 
-
   return weatherContainer;
 }
 
@@ -38,10 +30,4 @@ const bubbleTopRow = () => {
 
 }
 
-const addElementToContentContainer = (e) => {
-  contentContainer.appendChild(e);
-}
-
-// addElementToContentContainer(weatherTemplate());
-
-export { weatherTemplate, contentContainer };
+export { weatherContainer, contentContainer };

@@ -2,7 +2,8 @@ import { pageLoad } from "../dist/page-load";
 import * as Content from "../dist/content";
 import "./style.css";
 
-pageLoad.appendElement(Content.contentContainer());
-const contentContainer = document.getElementById("content-container");
+const contentContainer = Content.contentContainer();
+const weatherContainer = Content.weatherContainer();
 
-pageLoad.appendElementIntoContainer(Content.weatherTemplate(), contentContainer);
+pageLoad.appendElement(contentContainer);
+contentContainer.appendChild(weatherContainer);
