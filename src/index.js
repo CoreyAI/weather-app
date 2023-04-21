@@ -18,10 +18,9 @@ locationElement.addEventListener("click", function() {
 
   locationName = locationElement.innerText;
 
-  //WARNING: Can't remove if user cancels the search! Using this method for now
-  //         to proceed with developing the logic. 
-  locationBar.removeChild(locationBar.firstChild);
   Content.displayLocationOrSearch(locationBar);
+
+
 });
 
 //TODO: Possibly create async/await for search field generated from clicking

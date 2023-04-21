@@ -34,6 +34,9 @@ const bubbleTopRow = () => {
   container.setAttribute("class", "bubble-item");
   container.setAttribute("id", "bubble-top-row");
 
+  container.appendChild(locationSearch());
+  container.appendChild(locationDisplay());
+
   displayLocationOrSearch(container);
   
   return container;
@@ -81,14 +84,16 @@ const locationDisplay = () => {
 
 const displayLocationOrSearch = (container) => {
   if (searchClickFlag == false) {
-    container.appendChild(locationDisplay());
+    container.querySelector("#search-bar").
+      setAttribute("style", "display: none");
+    container.querySelector("#location").
+      removeAttribute("style", "display: none");
   } else {
-    container.appendChild(locationSearch());
+    container.querySelector("#location").
+      setAttribute("style", "display: none");
+    container.querySelector("#search-bar").
+      removeAttribute("style", "display: none");
   }
-}
-
-const clearContainer = (container) => {
-
 }
 
 export { weatherContainer, contentContainer, bubbleTopRow, bubbleLeftColumn, 
