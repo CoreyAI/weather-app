@@ -13,7 +13,7 @@ const locationElement = document.getElementById("location");
 let locationName = '';
 locationElement.addEventListener("click", function() {
   // console.log("location has been clicked!");
-  // Content.setSearchClickFlag();
+  Content.setSearchClickFlag();
   // console.log(Content.getSearchClickFlag());
 
   locationName = locationElement.innerText;
