@@ -24,10 +24,19 @@ locationElement.addEventListener("click", function() {
 
 
 let form = document.getElementById("search-bar");
+let userInput = '';     // Consider not using this as global variable.
 form.addEventListener("reset", function() {
   console.log("reset button pressed");
+  Content.setSearchClickFlag();
+  Content.displayLocationOrSearch(locationBar);
 });
 form.addEventListener("submit", function(e) {
   e.preventDefault();
   console.log("submit button pressed");
+  userInput = this.elements['search-location'].value;
+  // TODO: Connect to weather API with userInput. Check docs for proper
+  //       input sanitation.
+  Content.setSearchClickFlag();
+  Content.setLocation(userInput);
+  Content.displayLocationOrSearch(locationBar);
 });

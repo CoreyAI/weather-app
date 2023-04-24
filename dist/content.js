@@ -78,7 +78,10 @@ const locationDisplay = () => {
   container.setAttribute("id", "location");
   
   // TODO: City name must be obtained from input/API.
-  container.innerHTML = `Windsor`;
+  // container.innerHTML = `Windsor`;
+
+  container.innerHTML = setLocation();
+
   return container;
 }
 
@@ -96,6 +99,17 @@ const displayLocationOrSearch = (container) => {
   }
 }
 
+// Hacky solution for the initialization of this function in order to fulfill
+// the Windsor placeholder. Look to modify once weather API has been
+// incorporated.
+const setLocation = (location) => {
+  const locationElement = document.getElementById("location");
+  if (!location) {
+    return 'Windsor';
+  }
+  locationElement.innerText = location;
+}
+
 export { weatherContainer, contentContainer, bubbleTopRow, bubbleLeftColumn, 
   bubbleRightColumn, getSearchClickFlag, setSearchClickFlag, 
-  displayLocationOrSearch };
+  displayLocationOrSearch, setLocation };
