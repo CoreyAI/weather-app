@@ -64,7 +64,7 @@ const locationSearch = () => {
   formContainer.innerHTML = `
     <label htmlFor="search">
       <input type="text" name="search-location" id="search-location" 
-        placeholder="location"/>
+        placeholder="location" autocomplete="off"/>
         <button type="submit">Submit</button>
         <button type="reset">Reset</button>
     </label>
