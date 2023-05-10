@@ -1,5 +1,6 @@
 import { pageLoad } from "../dist/page-load";
 import * as Content from "../dist/content";
+import * as Weather from "../dist/weather-api";
 import "./style.css";
 
 const contentContainer = Content.contentContainer();
@@ -39,4 +40,5 @@ form.addEventListener("submit", function(e) {
   Content.setSearchClickFlag();
   Content.setLocation(userInput);
   Content.displayLocationOrSearch(locationBar);
+  Weather.getWeather(userInput);
 });
