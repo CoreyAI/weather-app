@@ -40,5 +40,10 @@ form.addEventListener("submit", function(e) {
   Content.setSearchClickFlag();
   Content.setLocation(userInput);
   Content.displayLocationOrSearch(locationBar);
-  Weather.getWeather(userInput);
+
+  // weatherData will now contain all relevant API info to populate webpage.
+  const weatherData = Weather.getWeather(userInput);
+
+  // Redundant within this block, useful outside of block and in other modules.
+  Weather.setWeatherData(weatherData);
 });
