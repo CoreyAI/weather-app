@@ -41,9 +41,16 @@ form.addEventListener("submit", function(e) {
   Content.setLocation(userInput);
   Content.displayLocationOrSearch(locationBar);
 
-  // weatherData will now contain all relevant API info to populate webpage.
-  const weatherData = Weather.getWeather(userInput);
+  // Weather.setWeather(userInput).then(result => {
+  //   weatherObject = result;
+  //   console.log("result within then statement, ", weatherObject);
+  // });
 
-  // Redundant within this block, useful outside of block and in other modules.
-  Weather.setWeatherData(weatherData);
+  let weatherObject = Weather.setWeather(userInput);
+  // Add instructions within result to output results into the DOM.
+  weatherObject.then(result => {
+    console.log("success!");
+  })
+  console.log("out of then statement.");
+
 });

@@ -2,22 +2,17 @@
 
 // Bad practice to upload API to git, was instructed to do so for this lesson.
 const api_key = "d41d7a247884440ab8b134831231005";
-const weatherData = [];
+let currentWeatherData;
 
 const getWeatherData = () => {
-  return weatherData;
+  return currentWeatherData;
 }
 
-// Placeholder function for potential future ues in other modules.
-const setWeatherData = (newData) => {
-  weatherData = newData;
-}
-
-async function getWeather(location) {
+async function setWeather(location) {
   const response = await fetch(`https://api.weatherapi.com/v1/current.json?key=${api_key}&q=${location}`);
-  const weatherData = await response.json();
-  console.log(weatherData);
-  return weatherData;
+  const newWeatherData = await response.json();
+  currentWeatherData = newWeatherData;
+  return newWeatherData;
 }
 
-export { getWeather, getWeatherData, setWeatherData };
+export { getWeatherData, setWeather };
