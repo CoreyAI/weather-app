@@ -13,7 +13,7 @@
 #content-container {
   display: flex;
   background-color: blue;
-  color: white;
+  color: black;
   height: 10rem;
   width: 20rem;
   border-radius: 1.5rem;
@@ -24,8 +24,8 @@
   display: grid;
   width: 100%;
   height: 100%;
-  grid-template-rows: 2rem auto;
-  grid-template-columns: 25% auto;
+  grid-template-rows: 2.5rem auto;
+  grid-template-columns: 33% auto;
   grid-template-areas: 
     "top-row top-row" 
     "left-column right-column";
@@ -42,15 +42,33 @@
   display: flex;
   grid-area: left-column;
   background-color: yellow;
+  flex-direction: column;
+  font-size: 0.85rem;
 }
 
 #bubble-right-column {
   display: flex;
   grid-area: right-column;
   background-color: green;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
 }
 
 #search-bar, #location {
   display: flex;
   align-items: center;
+}
+
+#weather-icon-temp {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+#weather-icon-temp > img {
+  height: auto;
+  width: 45%;
 }
