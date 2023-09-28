@@ -76,12 +76,7 @@ const locationSearch = () => {
 const locationDisplay = () => {
   const container = document.createElement("div");
   container.setAttribute("id", "location");
-  
-  // TODO: City name must be obtained from input/API.
-  // container.innerHTML = `Windsor`;
-
   container.innerHTML = setLocation();
-
   return container;
 }
 
@@ -99,15 +94,32 @@ const displayLocationOrSearch = (container) => {
   }
 }
 
-// Hacky solution for the initialization of this function in order to fulfill
-// the Windsor placeholder. Look to modify once weather API has been
-// incorporated.
-const setLocation = (location) => {
+const setLocation = (location, result) => {
   const locationElement = document.getElementById("location");
   if (!location) {
-    return 'Windsor';
+    return 'Choose Location';
   }
-  locationElement.innerText = location;
+
+  locationElement.innerText = 
+    `${result.location.name}, ${result.location.region}, ${result.location.country}.`;
+  
+  // TODO: Parse date text to remove time.
+  const leftBubbleElement = document.getElementById("bubble-left-column");
+  leftBubbleElement.innerHTML = `
+    <div>${result.current.last_updated}</div>
+    <div>Wind: ${result.current.gust_kph} km/h</div>
+    <div>Precip: ${result.current.precip_mm} mm</div>
+  `;
+
+  const rightBubbleElement = document.getElementById("bubble-right-column");
+  rightBubbleElement.innerHTML = `
+    <div>${result.current.condition.text}</div>
+    <div id="weather-icon-temp">
+      <img src="${result.current.condition.icon}" alt="${result.current.condition.text}" />
+      <div>${result.current.temp_c} &deg;C</div>
+    </div>
+  `;
+
 }
 
 export { weatherContainer, contentContainer, bubbleTopRow, bubbleLeftColumn, 
