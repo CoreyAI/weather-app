@@ -14,7 +14,7 @@
   display: flex;
   background-color: blue;
   color: black;
-  height: 10rem;
+  height: 20rem;
   width: 20rem;
   border-radius: 1.5rem;
   padding: 1rem;
@@ -24,11 +24,12 @@
   display: grid;
   width: 100%;
   height: 100%;
-  grid-template-rows: 2.5rem auto;
-  grid-template-columns: 33% auto;
+  grid-template-rows: 2.5rem auto 4rem;
+  grid-template-columns: auto;
   grid-template-areas: 
-    "top-row top-row" 
-    "left-column right-column";
+    "top-row" 
+    "middle-row"
+    "bottom-row";
 }
 
 #bubble-top-row {
@@ -38,21 +39,21 @@
   justify-content: space-between;
 }
 
-#bubble-left-column {
+#bubble-middle-row {
   display: flex;
-  grid-area: left-column;
-  background-color: yellow;
-  flex-direction: column;
-  font-size: 0.85rem;
-}
-
-#bubble-right-column {
-  display: flex;
-  grid-area: right-column;
+  grid-area: middle-row;
   background-color: green;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
+}
+
+#bubble-bottom-row {
+  display: flex;
+  grid-area: bottom-row;
+  background-color: yellow;
+  flex-direction: column;
+  font-size: 0.85rem;
 }
 
 #search-bar, #location {
