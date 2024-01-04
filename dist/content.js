@@ -23,8 +23,8 @@ const weatherContainer = () => {
   weatherContainer.setAttribute("id", "weather-container");
 
   weatherContainer.appendChild(bubbleTopRow());
-  weatherContainer.appendChild(bubbleLeftColumn());
-  weatherContainer.appendChild(bubbleRightColumn());
+  weatherContainer.appendChild(bubbleBottomRow());
+  weatherContainer.appendChild(bubbleMiddleRow());
 
   return weatherContainer;
 }
@@ -42,17 +42,17 @@ const bubbleTopRow = () => {
   return container;
 }
 
-const bubbleLeftColumn = () => {
+const bubbleMiddleRow = () => {
   const container = document.createElement("div");
   container.setAttribute("class", "bubble-item");
-  container.setAttribute("id", "bubble-left-column");
+  container.setAttribute("id", "bubble-middle-row");
   return container;
 }
 
-const bubbleRightColumn = () => {
+const bubbleBottomRow = () => {
   const container = document.createElement("div");
   container.setAttribute("class", "bubble-item");
-  container.setAttribute("id", "bubble-right-column");
+  container.setAttribute("id", "bubble-bottom-row");
   return container;
 }
 
@@ -104,15 +104,9 @@ const setLocation = (location, result) => {
     `${result.location.name}, ${result.location.region}, ${result.location.country}.`;
   
   // TODO: Parse date text to remove time.
-  const leftBubbleElement = document.getElementById("bubble-left-column");
-  leftBubbleElement.innerHTML = `
-    <div>${result.current.last_updated}</div>
-    <div>Wind: ${result.current.gust_kph} km/h</div>
-    <div>Precip: ${result.current.precip_mm} mm</div>
-  `;
 
-  const rightBubbleElement = document.getElementById("bubble-right-column");
-  rightBubbleElement.innerHTML = `
+  const middleRowElement = document.getElementById("bubble-middle-row");
+  middleRowElement.innerHTML = `
     <div>${result.current.condition.text}</div>
     <div id="weather-icon-temp">
       <img src="${result.current.condition.icon}" alt="${result.current.condition.text}" />
@@ -120,8 +114,16 @@ const setLocation = (location, result) => {
     </div>
   `;
 
+  const bottomRowElement = document.getElementById("bubble-bottom-row");
+  bottomRowElement.innerHTML = `
+    <div>${result.current.last_updated}</div>
+    <div>Wind: ${result.current.gust_kph} km/h</div>
+    <div>Precip: ${result.current.precip_mm} mm</div>
+  `;
+
 }
 
-export { weatherContainer, contentContainer, bubbleTopRow, bubbleLeftColumn, 
-  bubbleRightColumn, getSearchClickFlag, setSearchClickFlag, 
+export { weatherContainer, contentContainer, bubbleTopRow, bubbleBottomRow
+, 
+  bubbleMiddleRow, getSearchClickFlag, setSearchClickFlag, 
   displayLocationOrSearch, setLocation };
