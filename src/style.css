@@ -36,7 +36,7 @@
   display: flex;
   grid-area: top-row;
   background-color: red;
-  justify-content: space-between;
+  justify-content: center;
 }
 
 #bubble-middle-row {
@@ -44,7 +44,7 @@
   grid-area: middle-row;
   background-color: green;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
 }
 
@@ -52,13 +52,19 @@
   display: flex;
   grid-area: bottom-row;
   background-color: yellow;
-  flex-direction: column;
+  flex-direction: row;
   font-size: 0.85rem;
+  justify-content: space-around;
+  align-items: center;
 }
 
 #search-bar, #location {
   display: flex;
   align-items: center;
+}
+
+#weather-condition {
+  font-size: 2rem;
 }
 
 #weather-icon-temp {
