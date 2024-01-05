@@ -23,8 +23,8 @@ const weatherContainer = () => {
   weatherContainer.setAttribute("id", "weather-container");
 
   weatherContainer.appendChild(bubbleTopRow());
-  weatherContainer.appendChild(bubbleBottomRow());
   weatherContainer.appendChild(bubbleMiddleRow());
+  weatherContainer.appendChild(bubbleBottomRow());
 
   return weatherContainer;
 }
@@ -107,7 +107,7 @@ const setLocation = (location, result) => {
 
   const middleRowElement = document.getElementById("bubble-middle-row");
   middleRowElement.innerHTML = `
-    <div>${result.current.condition.text}</div>
+    <div id="weather-condition">${result.current.condition.text}</div>
     <div id="weather-icon-temp">
       <img src="${result.current.condition.icon}" alt="${result.current.condition.text}" />
       <div>${result.current.temp_c} &deg;C</div>
