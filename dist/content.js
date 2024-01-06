@@ -116,9 +116,13 @@ const setLocation = (location, result) => {
 
   const bottomRowElement = document.getElementById("bubble-bottom-row");
   bottomRowElement.innerHTML = `
-    <div>${result.current.last_updated}</div>
-    <div>Wind: ${result.current.gust_kph} km/h</div>
-    <div>Precip: ${result.current.precip_mm} mm</div>
+    <div>
+      <div>Wind: ${result.current.gust_kph} km/h</div>
+      <div>Precip: ${result.current.precip_mm} mm</div>
+    </div>
+    <div>
+      <div>${result.current.last_updated}</div>
+    </div>
   `;
 
 }
