@@ -66,7 +66,7 @@ const locationSearch = () => {
       <input type="text" name="search-location" id="search-location" 
         placeholder="location" autocomplete="off"/>
         <button type="submit">Submit</button>
-        <button type="reset">Reset</button>
+        <button type="reset">Cancel</button>
     </label>
   `;
 
