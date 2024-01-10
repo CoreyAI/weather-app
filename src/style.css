@@ -12,11 +12,12 @@
 
 #content-container {
   display: flex;
-  background-color: blue;
-  color: black;
+  background-color: rgb(128, 128, 128, 0.5);
+  color: white;
   height: 20rem;
-  width: 20rem;
-  border-radius: 1.5rem;
+  width: 15rem;
+  border: solid white 5px;
+  border-radius: 4rem;
   padding: 1rem;
 }
 
@@ -24,6 +25,7 @@
   display: grid;
   width: 100%;
   height: 100%;
+  border-radius: 10px;
   grid-template-rows: 2.5rem auto 4rem;
   grid-template-columns: auto;
   grid-template-areas: 
@@ -35,14 +37,12 @@
 #bubble-top-row {
   display: flex;
   grid-area: top-row;
-  background-color: red;
   justify-content: center;
 }
 
 #bubble-middle-row {
   display: flex;
   grid-area: middle-row;
-  background-color: green;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -51,7 +51,6 @@
 #bubble-bottom-row {
   display: flex;
   grid-area: bottom-row;
-  background-color: yellow;
   flex-direction: column;
   font-size: 0.85rem;
   justify-content: space-around;
@@ -68,7 +67,8 @@
 
 #search-bar, #location {
   display: flex;
-  align-items: center;
+  text-align: center;
+  padding: 0rem 1rem;
 }
 
 #weather-condition {
@@ -86,4 +86,13 @@
 #weather-icon-temp > img {
   height: auto;
   width: 45%;
+}
+
+#location:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+input {
+  text-align: center;
 }
